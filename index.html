@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Dimension C-132</title>
+      <link rel="stylesheet" href="style/style.css">
+      <script
+         src="https://code.jquery.com/jquery-3.2.1.min.js"
+         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+         crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <div class="container">
+      <br>
+      <br>
+      <h1>Rick and Morty Drum Kit &amp Quote Generator</h1>
+      <br>
+      <div class="row">
+         <div class="row keys">
+            <div data-key="65" class="col key">
+               <kbd>A</kbd>
+               <span class="sound">Cronenberg World</span>
+            </div>
+            <div data-key="83" class="col key">
+               <kbd>S</kbd>
+               <span class="sound">Citadel of Ricks</span>
+            </div>
+            <div data-key="68" class="col key">
+               <kbd>D</kbd>
+               <span class="sound">Gazorpazorp</span>
+            </div>
+            <div data-key="70" class="col key">
+               <kbd>F</kbd>
+               <span class="sound">Froopyland</span>
+            </div>
+            <div data-key="71" class="col key">
+               <kbd>G</kbd>
+               <span class="sound">Bird World</span>
+            </div>
+            <div data-key="72" class="col key">
+               <kbd>H</kbd>
+               <span class="sound">Corn Universe</span>
+            </div>
+            <div data-key="74" class="col key">
+               <kbd>J</kbd>
+               <span class="sound">Microverse</span>
+            </div>
+            <div data-key="75" class="col key">
+               <kbd>K</kbd>
+               <span class="sound">Summer's Room</span>
+            </div>
+            <!-- <div data-key="76" class="col key">
+               <kbd>L</kbd>
+               <span class="sound">Purge Planet</span>
+               </div> -->
+         </div>
+         <div class="col-12 text-center">
+            <button type="button" class="btn btn-primary btn-lg">Get A Quote from Your Favourite Show</button>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-7">
+            <h4 id="request">
+            <br>
+            <span class="description"><span style="color:#EFB93E; font-weight:bold">Rick and Morty</span> is an American adult animated science-fiction sitcom created by Justin Roiland and Dan Harmon for Cartoon Network's late-night programming block Adult Swim. The series follows the misadventures of cynical mad scientist Rick Sanchez and his fretful, easily influenced grandson Morty Smith, who split their time between domestic life and interdimensional adventures. </span>
+            <h4>
+         </div>
+         <div class="col-5 pickhead">
+            <div id="picklespeak" onmouseover="play()"><img src="img/pickledead.gif" id="pickledead"  onmouseover="this.src='img/picklerick.gif'" onmouseout="this.src='img/pickledead.gif'" value="PLAY"></div>
+            <img src="img/picklerick.gif" id="pickle">
+         </div>
+      </div>
+      <audio data-key="65" src="sounds/clap.wav"></audio>
+      <audio data-key="83" src="sounds/hihat.wav"></audio>
+      <audio data-key="68" src="sounds/kick.wav"></audio>
+      <audio data-key="70" src="sounds/openhat.wav"></audio>
+      <audio data-key="71" src="sounds/boom.wav"></audio>
+      <audio data-key="72" src="sounds/ride.wav"></audio>
+      <audio data-key="74" src="sounds/snare.wav"></audio>
+      <audio data-key="75" src="sounds/tom.wav"></audio>
+      <audio data-key="76" src="sounds/tink.wav"></audio>
+      <audio id="audio" src="sounds/picklerick.wav"></audio>
+      <script>
+         function removeTransition(e) {
+           if (e.propertyName !== 'transform') return;
+           e.target.classList.remove('playing');
+         }
+         function playSound(e) {
+           const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+           const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+           if (!audio) return;
+           key.classList.add('playing');
+           audio.currentTime = 0;
+           audio.play();
+         }
+         const keys = Array.from(document.querySelectorAll('.key'));
+         keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+         window.addEventListener('keydown', playSound);
+         
+         function play(){
+              var audio = document.getElementById("audio");
+              audio.play();
+              return;
+                        }
+         
+         
+         $('.btn').on('click',function (e){       
+          
+          $.ajax({
+          url: 'http://loremricksum.com/api/?paragraphs=2&quotes=2',
+          data : "jsonp",
+         
+          success: function(response) {
+               $("#request").html("«" + response.data + "»");
+         
+          },
+          error:function(exception){alert('Exeption:'+exception);}
+         }); 
+         e.getNewQuote();
+         });
+      </script>
+   </body>
+</html>

@@ -1,0 +1,124 @@
+html, body {
+  font-size: 10px;
+  background: url(../img/background.jpg);
+  background-position: center center;
+      background-repeat:  no-repeat;
+      background-attachment: fixed;
+      background-size:  cover;
+
+}
+body,html {
+ 
+  font-family: sans-serif;
+  overflow:hidden;
+}
+
+.container {
+  background: url(../img/background.jpg);
+  background-position: center center;
+      background-repeat:  no-repeat;
+      background-attachment: fixed;
+      background-size:  cover;
+}
+
+
+.key {
+  border: .4rem solid black;
+  border-radius: .5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem .5rem;
+  transition: all .07s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 .5rem black;
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
+kbd {
+  display: block;
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  color: #ffc600;
+}
+
+#pickle {
+  position: relative;
+  border-radius: 45%;
+  bottom: 170px;
+  left: 120px;
+  height: 250px;
+  width: 250px;
+  display: none;
+}
+
+#pickledead {
+  position: relative;
+  border-radius: 45%;
+  /*bottom: 170px;
+  left: 120px;*/
+  height: 250px;
+  width: 250px;
+}
+.picklespeak {
+  padding: 0 !important;
+   margin: 0 !important;
+
+}
+.col .pickhead {
+  padding: 0 !important;
+   margin: 0 !important;
+}
+
+h1 {
+  text-align: center;
+  color: #FFFFFF !important;
+  /*background: #075B9F;*/
+  font-family: 'Roboto', sans-serif;
+  
+  text-shadow:
+    3px 3px 0 #000,
+    /* Simulated effect for Firefox and Opera
+       and nice enhancement for WebKit */
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+   -1px  1px 0 #000,
+    1px  1px 0 #000;
+}
+
+
+.col-12 {
+  margin-top: 20px ;
+}
+
+#request {
+  width: 315px;
+  height: 550px;
+  color: #EFB93E;
+  font-size: 17px;
+  line-height: 1.5em;
+  font-family: Comic Sans MS, Cursive;
+  text-align: left;
+}
+
+.description {
+  width: 315px;
+  height: 500px;
+  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 1.5em;
+  font-family: Comic Sans MS, Cursive;
+  text-align: center;
+}
